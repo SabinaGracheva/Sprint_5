@@ -1,16 +1,12 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 from locators import Locators
 
 
 @pytest.fixture
 def driver():
-    options = Options()
-    options.add_argument("--window-size=1400,600")
-    service = Service(ChromeDriverManager().install())
     browser = webdriver.Chrome()
     browser.maximize_window()
     browser.get('https://stellarburgers.nomoreparties.site/')
@@ -20,7 +16,8 @@ def driver():
 
 @pytest.fixture
 def login(driver):
-    driver.find_element(*Locators.EMAIL_ENTRY).send_keys('sabinagracheva5111@ya.ru')
-    driver.find_element(*Locators.PASSWORD_ENTRY).send_keys('112233')
-    driver.find_element(*Locators.ENTRY_BUTTON).click()
+    WebDriverWait(driver, 5).until(ec.element_to_be_clickable(Locators.LOGIN_BUTTON_ON_THE_MAIN_PAGE)).click()
+    driver.find_element(*Locators.LOGIN_EMAIL).send_keys('sabinagracheva5111@ya.ru')
+    driver.find_element(*Locators.LOGIN_PASSWORD).send_keys('112233')
+    driver.find_element(*Locators.LOGIN_BUTTON_ON_THE_LOGIN_PAGE).click()
     return driver
