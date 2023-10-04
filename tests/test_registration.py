@@ -10,7 +10,7 @@ faker = Faker()
 
 class TestRegistration:
     def test_registration_successful(self, driver):
-        driver.find_element(*Locators.LOGIN_BUTTON_MAIN_PAGE).click()
+        driver.find_element(*Locators.LOGIN_BUTTON_ON_THE_MAIN_PAGE).click()
         WebDriverWait(driver, 5).until(ec.element_to_be_clickable(Locators.REG_BUTTON_IN_ENTRY))
         driver.find_element(*Locators.REG_BUTTON_IN_ENTRY).click()
         WebDriverWait(driver, 5).until(ec.element_to_be_clickable(Locators.REG_INPUT))
@@ -28,7 +28,7 @@ class TestRegistration:
         name = faker.name()
         email = faker.email()
         password = randint(10000, 99999)
-        driver.find_element(*Locators.LOGIN_BUTTON_MAIN_PAGE).click()
+        driver.find_element(*Locators.LOGIN_BUTTON_ON_THE_MAIN_PAGE).click()
         WebDriverWait(driver, 5).until(ec.element_to_be_clickable(Locators.REG_BUTTON_IN_ENTRY))
         driver.find_element(*Locators.REG_BUTTON_IN_ENTRY).click()
         WebDriverWait(driver, 5).until(ec.element_to_be_clickable(Locators.REG_INPUT))
