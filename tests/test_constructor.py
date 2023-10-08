@@ -1,7 +1,7 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
-from locators import Locators
+from locators import MainPageLocators
 
 
 class TestConstructor:

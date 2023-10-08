@@ -16,7 +16,7 @@ test_go_to_the_sauces_sectione - проверка перехода к разде
 test_go_to_the_fillings_sectione - проверка перехода к разделу «Начинки»
 
 
-Для запуска проекта понадобиться установить следующее:
+Для запуска проекта понадобится установить следующее:
 Библиотеку pytest для Python с помощью команды pip install pytest
 Библиотеку Selenium для Python с помощью команды pip install selenium
 Библиотеку Faker для генерации фальшивых данных с помощью команды pip install faker
