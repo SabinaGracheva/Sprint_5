@@ -17,12 +17,12 @@ class TestRegistration:
         email = faker.email()
         password = randint(100000, 999999)
         driver.find_element(*MainPageLocators.LOGIN_BUTTON).click()
-        WebDriverWait(driver, 5).until(ec.element_to_be_clickable(AuthPageLocators.LOGIN_BUTTON))
-        driver.find_element(AuthPageLocators.REG_BUTTON_IN_ENTRY).click()
-        # WebDriverWait(driver, 5).until(ec.element_to_be_clickable(RegPageLocators.REG_BUTTON))
-        driver.find_elements(*RegPageLocators.CREATE_NAME).send_keys(name)
-        driver.find_elements(*RegPageLocators.CREATE_NAME).send_keys(email)
-        driver.find_elements(*RegPageLocators.CREATE_NAME).send_keys(password)
+        WebDriverWait(driver, 5).until(ec.element_to_be_clickable(AuthPageLocators.REG_BUTTON_IN_ENTRY)).click()
+        # driver.find_element(AuthPageLocators.REG_BUTTON_IN_ENTRY).click()
+        WebDriverWait(driver, 5).until(ec.element_to_be_clickable(RegPageLocators.REG_BUTTON))
+        driver.find_element(*RegPageLocators.CREATE_NAME).send_keys(name)
+        driver.find_element(*RegPageLocators.CREATE_EMAIL).send_keys(email)
+        driver.find_element(*RegPageLocators.CREATE_PASSWORD).send_keys(password)
         driver.find_element(*RegPageLocators.REG_BUTTON).click()
         # Проверка успешной регистрации, авторизация под созданным юзером
         WebDriverWait(driver, 5).until(
