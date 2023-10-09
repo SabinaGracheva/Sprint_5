@@ -16,6 +16,7 @@ class AuthPageLocators:
     LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти']")  # кнопка "Войти"
     REG_BUTTON_IN_ENTRY = (By.XPATH, '//a[@href="/register"]')  # текст-ссылка "Зарегистрироваться"
     RESTORE_PASSWORD = (By.XPATH, '//a[@href="/forgot-password"]')  # текст-ссылка "Восстановить пароль"
+    LOGIN_TEXT = (By.XPATH, '//h2[text()="Вход"]')  # текст "Вход" на странице авторизации
 
 
 class RegPageLocators:
@@ -25,6 +26,7 @@ class RegPageLocators:
     CREATE_PASSWORD = (By.XPATH, '//input[@name="Пароль"]')  # поле ввода пароля
     REG_BUTTON = (By.XPATH, '//button[text()="Зарегистрироваться"]')  # кнопка "Зарегистрироваться"
     ERR_MESSAGE = (By.XPATH, '//p[text()="Некорректный пароль"]')  # сообщение об ошибке, что введен некорректный пароль
+    LOGIN_BUTTON = (By.XPATH, '//a[@href="/login"]')  # кнопка "Войти"
 
 
 class PersonalAccountPageLocators:
@@ -38,3 +40,8 @@ class ConstructorPageLocators:
     CONSTRUCTOR_SAUCES_BUTTON = (By.XPATH, '//span[text()="Соусы"]')  # раздел "Соусы"
     CONSTRUCTOR_FILLINGS_BUTTON = (By.XPATH, '//span[text()="Начинки"]')  # раздел " Начинки"
     CONSTRUCTOR_ACTIVE_BUTTON = (By.XPATH, '//div[contains(@class, "tab_tab_type_current")]')  # активная кнопка в конструкторе
+
+
+class RestorePasswordPageLocators:
+    # Локаторы на странице восстановления пароля
+    LOGIN_BUTTON = (By.XPATH, '//a[@href="/login"]')  # кнопка "Войти"

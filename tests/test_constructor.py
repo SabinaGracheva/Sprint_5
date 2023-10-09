@@ -1,34 +1,24 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-from selenium.webdriver.common.by import By
-from locators import MainPageLocators
+from locators import ConstructorPageLocators
 
 
 class TestConstructor:
     # переход к разделу «Булки»
-    def test_go_to_the_bagels_sectione(self, driver, login):
+    def test_go_to_the_bagels_section(self, driver):
         WebDriverWait(driver, 5).until(
-            ec.visibility_of_element_located(Locators.BUILD_A_BURGER))
-        driver.find_element(By.XPATH, '//span[text()="Соусы"]').click()
-        driver.find_element(By.XPATH, '//span[text()="Булки"]').click()
-        assert driver.find_element(By.XPATH,
-                                   '//div[@class="tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect"]'
-                                   '/span[text()="Булки"]')
+            ec.visibility_of_element_located(ConstructorPageLocators.CONSTRUCTOR_SAUCES_BUTTON)).click()
+        driver.find_element(*ConstructorPageLocators.CONSTRUCTOR_BAGELS_BUTTON).click()
+        assert driver.find_element(*ConstructorPageLocators.CONSTRUCTOR_ACTIVE_BUTTON).text == 'Булки'
 
     # переход к разделу «Соусы»
-    def test_go_to_the_sauces_sectione(self, driver, login):
+    def test_go_to_the_sauces_section(self, driver):
         WebDriverWait(driver, 5).until(
-            ec.visibility_of_element_located(Locators.BUILD_A_BURGER))
-        driver.find_element(By.XPATH, '//span[text()="Соусы"]').click()
-        assert driver.find_element(By.XPATH,
-                                   '//div[@class="tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect"]'
-                                   '/span[text()="Соусы"]')
+            ec.visibility_of_element_located(ConstructorPageLocators.CONSTRUCTOR_SAUCES_BUTTON)).click()
+        assert driver.find_element(*ConstructorPageLocators.CONSTRUCTOR_ACTIVE_BUTTON).text == 'Соусы'
 
     # переход к разделу «Начинки»
-    def test_go_to_the_fillings_sectione(self, driver, login):
+    def test_go_to_the_fillings_section(self, driver):
         WebDriverWait(driver, 5).until(
-            ec.visibility_of_element_located(Locators.BUILD_A_BURGER))
-        driver.find_element(By.XPATH, '//span[text()="Начинки"]').click()
-        assert driver.find_element(By.XPATH,
-                                   '//div[@class="tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect"]'
-                                   '/span[text()="Начинки"]')
+            ec.visibility_of_element_located(ConstructorPageLocators.CONSTRUCTOR_FILLINGS_BUTTON)).click()
+        assert driver.find_element(*ConstructorPageLocators.CONSTRUCTOR_FILLINGS_BUTTON).text == 'Начинки'
