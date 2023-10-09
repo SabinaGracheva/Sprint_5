@@ -17,8 +17,8 @@ class TestRegistration:
         email = faker.email()
         password = randint(100000, 999999)
         driver.find_element(*MainPageLocators.LOGIN_BUTTON).click()
-        WebDriverWait(driver, 5).until(ec.element_to_be_clickable(AuthPageLocators.REG_BUTTON_IN_ENTRY)).click()
-        # driver.find_element(AuthPageLocators.REG_BUTTON_IN_ENTRY).click()
+        WebDriverWait(driver, 5).until(
+            ec.element_to_be_clickable(AuthPageLocators.REG_BUTTON_IN_ENTRY)).click()
         WebDriverWait(driver, 5).until(ec.element_to_be_clickable(RegPageLocators.REG_BUTTON))
         driver.find_element(*RegPageLocators.CREATE_NAME).send_keys(name)
         driver.find_element(*RegPageLocators.CREATE_EMAIL).send_keys(email)
@@ -36,17 +36,17 @@ class TestRegistration:
             ec.element_to_be_clickable(PersonalAccountPageLocators.LOGOUT_BUTTON))
         assert logout.is_displayed()
 
-    # def test_registration_invalid_password(self, driver):
-    #     name = faker.name()
-    #     email = faker.email()
-    #     password = randint(10000, 99999)
-    #     driver.find_element(*Locators.LOGIN_BUTTON_ON_THE_MAIN_PAGE).click()
-    #     WebDriverWait(driver, 5).until(ec.element_to_be_clickable(Locators.REG_BUTTON_IN_ENTRY))
-    #     driver.find_element(*Locators.REG_BUTTON_IN_ENTRY).click()
-    #     WebDriverWait(driver, 5).until(ec.element_to_be_clickable(Locators.REG_INPUT))
-    #     reg_input = driver.find_elements(*Locators.REG_INPUT)
-    #     reg_input[0].send_keys(name)
-    #     reg_input[1].send_keys(email)
-    #     reg_input[2].send_keys(password)
-    #     driver.find_element(*Locators.REG_BUTTON).click()
-    #     assert driver.find_element(By.XPATH, '//p[text()="Некорректный пароль"]')
+    def test_registration_invalid_password(self, driver):
+        name = faker.name()
+        email = faker.email()
+        password = randint(10000, 99999)
+        driver.find_element(*MainPageLocators.LOGIN_BUTTON).click()
+        WebDriverWait(driver, 5).until(
+            ec.element_to_be_clickable(AuthPageLocators.REG_BUTTON_IN_ENTRY)).click()
+        WebDriverWait(driver, 5).until(
+            ec.element_to_be_clickable(RegPageLocators.REG_BUTTON))
+        driver.find_element(*RegPageLocators.CREATE_NAME).send_keys(name)
+        driver.find_element(*RegPageLocators.CREATE_EMAIL).send_keys(email)
+        driver.find_element(*RegPageLocators.CREATE_PASSWORD).send_keys(password)
+        driver.find_element(*RegPageLocators.REG_BUTTON).click()
+        assert driver.find_element(*RegPageLocators.ERR_MESSAGE)

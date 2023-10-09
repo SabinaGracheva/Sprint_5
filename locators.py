@@ -24,8 +24,17 @@ class RegPageLocators:
     CREATE_EMAIL = (By.XPATH, '(//input[@name="name"])[2]')  # поле ввода email
     CREATE_PASSWORD = (By.XPATH, '//input[@name="Пароль"]')  # поле ввода пароля
     REG_BUTTON = (By.XPATH, '//button[text()="Зарегистрироваться"]')  # кнопка "Зарегистрироваться"
+    ERR_MESSAGE = (By.XPATH, '//p[text()="Некорректный пароль"]')  # сообщение об ошибке, что введен некорректный пароль
 
 
 class PersonalAccountPageLocators:
     # Локаторы страницы "Личный кабинет"
     LOGOUT_BUTTON = (By.XPATH, '//button[text()="Выход"]')  # кнопка выхода из Личного кабинета
+
+
+class ConstructorPageLocators:
+    # Локаторы на странице конструктора
+    CONSTRUCTOR_BAGELS_BUTTON = (By.XPATH, '//span[text()="Булки"]')  # раздел "Булки"
+    CONSTRUCTOR_SAUCES_BUTTON = (By.XPATH, '//span[text()="Соусы"]')  # раздел "Соусы"
+    CONSTRUCTOR_FILLINGS_BUTTON = (By.XPATH, '//span[text()="Начинки"]')  # раздел " Начинки"
+    CONSTRUCTOR_ACTIVE_BUTTON = (By.XPATH, '//div[contains(@class, "tab_tab_type_current")]')  # активная кнопка в конструкторе
