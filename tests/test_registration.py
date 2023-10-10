@@ -2,11 +2,7 @@ from random import randint
 from faker import Faker
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
-from locators import MainPageLocators
-from locators import AuthPageLocators
-from locators import RegPageLocators
-from locators import PersonalAccountPageLocators
-
+from locators import MainPageLocators, AuthPageLocators, RegPageLocators, PersonalAccountPageLocators
 
 faker = Faker()
 
